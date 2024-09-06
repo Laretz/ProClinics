@@ -187,3 +187,29 @@ Deletar Paciente: Remove um paciente baseado no ID fornecido.
 Listar Pacientes: Retorna todos os pacientes cadastrados.
 Buscar Paciente por ID: Retorna um paciente específico baseado no ID.
 
+7.3 Implementando o Repositório de Pacientes
+Crie a interface IPatientRepository para definir métodos de CRUD (adicionar, atualizar, excluir e buscar pacientes).
+Em seguida, implemente a classe PatientRepository, utilizando ApplicationDbContext para realizar operações no banco de dados.
+Adicione o repositório ao container de injeção de dependência no arquivo Program.cs.
+7.4 Implementando o Repositório de Doutores
+Crie a interface IDoctorRepository para definir métodos de CRUD para a entidade Doctor.
+Implemente a classe DoctorRepository, utilizando ApplicationDbContext para realizar operações no banco de dados e buscar as especialidades do doutor usando Include.
+Adicione o repositório ao container de injeção de dependência no Program.cs da aplicação.
+
+7.5 Repositório de Agendamentos (Scheduling)
+Criação da Interface ISchedulingRepository:
+
+Define métodos para operações CRUD (criar, ler, atualizar e deletar) e obtenção de agendamentos por ID.
+Implementação da Classe SchedulingRepository:
+
+Adicionar Agendamento: Método AddAsync para adicionar um novo agendamento ao banco de dados.
+Excluir Agendamento: Método DeleteByIdAsync para remover um agendamento existente pelo ID.
+Obter Agendamentos: Métodos GetAllAsync e GetByIdAsync para obter todos os agendamentos e um agendamento específico, respectivamente. Inclui a navegação para Doctor e Patient.
+7.6 Repositório de Especialidades (Speciality)
+Criação da Interface ISpecialityRepository:
+
+Define o método para obter todas as especialidades.
+Implementação da Classe SpecialityRepository:
+
+Obter Especialidades: Método GetAllAsync para listar todas as especialidades no banco de dados.
+

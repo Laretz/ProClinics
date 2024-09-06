@@ -7,6 +7,8 @@ using ProClinics.Components.Account;
 using ProClinics.Data;
 using ProClinics.Repositories.Doctors;
 using ProClinics.Repositories.Patients;
+using ProClinics.Repositories.Schedulings;
+using ProClinics.Repositories.Specialitys;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,8 @@ builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuth
 
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<ISpecialityRepository, SpecialityRepository>();
+builder.Services.AddScoped<ISchedulingRepository, SchedulingRepository>();
 
 builder.Services.AddAuthentication(options =>
     {

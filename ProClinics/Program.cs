@@ -5,6 +5,8 @@ using MudBlazor.Services;
 using ProClinics.Components;
 using ProClinics.Components.Account;
 using ProClinics.Data;
+using ProClinics.Repositories.Doctors;
+using ProClinics.Repositories.Patients;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,9 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 
 builder.Services.AddAuthentication(options =>
     {

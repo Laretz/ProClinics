@@ -17,6 +17,8 @@ namespace ProClinics.Data
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+            new DbInitializer(builder).seed();
+
             base.OnModelCreating(builder);
         }
     }

@@ -9,7 +9,7 @@
         public string Email { get; set; } = null!;
         public string CellPhoneNumber { get; set; } = null!;
         public DateTime RegisterDate { get; set; }
-        public int SpecialtyId { get; set; }
+        public int SpecialityId { get; set; }
         public Speciality Speciality { get; set; } = null!;
         public ICollection<Scheduling> Scheduling { get; set; } = new List<Scheduling>();
 

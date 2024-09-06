@@ -28,9 +28,11 @@ namespace ProClinics.Data.Configurations
                .IsRequired(true)
                .HasColumnType("VARCHAR(1)");
 
-            builder.Property(x => x.Speciality)
-               .IsRequired(true);
-
+            builder.HasOne(x => x.Speciality)
+               .WithMany(s => s.Doctors)
+               .HasForeignKey(d => d.SpecialityId)
+               .OnDelete(DeleteBehavior.Restrict);
+    
             builder.HasIndex(x => x.CPF)
                 .IsUnique();
 
